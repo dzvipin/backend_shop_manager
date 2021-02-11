@@ -1,0 +1,33 @@
+version: '3.3'
+services:
+  docker-mysql:
+    restart: always
+    container_name: docker-mysql
+    image: mysql:5.7
+    environment:
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_HOST: '%'
+    volumes:
+    - my-db:/var/lib/mysql
+
+    ports:
+    - "3306:3306"
+
+#  backend-app:
+#    restart: on-failure
+#    build:
+#       context: ./
+#       dockerfile: Dockerfile
+#    image: app:1
+#    expose:
+#    - "8082"
+#    ports:
+#    - 8082:8082
+#    environment:
+#      WAIT_HOSTS: mysql:3306
+#    depends_on:
+#    - docker-mysql
+
+volumes:
+  my-db:
