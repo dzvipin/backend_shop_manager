@@ -1,5 +1,6 @@
 package com.geninvo.backend.modal.entity;
 
+import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
@@ -39,6 +40,12 @@ public class Shop {
     @JoinColumn(name = "address", referencedColumnName = "id", nullable = false)
     private Address address;
 
+    @NotNull
+    private LocalDateTime dateCreated = LocalDateTime.now();
+
+    @NotNull
+    private LocalDateTime dateUpdated = LocalDateTime.now();
+
     public Long getId() {
         return id;
     }
@@ -77,6 +84,22 @@ public class Shop {
 
     public void setAddress(final Address address) {
         this.address = address;
+    }
+
+    public LocalDateTime getDateCreated() {
+        return dateCreated;
+    }
+
+    public void setDateCreated(final LocalDateTime dateCreated) {
+        this.dateCreated = dateCreated;
+    }
+
+    public LocalDateTime getDateUpdated() {
+        return dateUpdated;
+    }
+
+    public void setDateUpdated(final LocalDateTime dateUpdated) {
+        this.dateUpdated = dateUpdated;
     }
 
     public enum Category {

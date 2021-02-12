@@ -1,6 +1,8 @@
 package com.geninvo.backend.modal.dto;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import javax.validation.constraints.NotNull;
 import com.geninvo.backend.modal.entity.Shop;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -22,6 +24,11 @@ public class ShopDto implements Serializable {
 
     @ApiModelProperty(notes = "Shop address")
     public AddressDto address;
+
+    public LocalDateTime dateCreated = LocalDateTime.now();
+
+    public LocalDateTime dateUpdated = LocalDateTime.now();
+
 
     public Long getId() {
         return id;
@@ -61,6 +68,22 @@ public class ShopDto implements Serializable {
 
     public void setAddress(final AddressDto address) {
         this.address = address;
+    }
+
+    public LocalDateTime getDateCreated() {
+        return dateCreated;
+    }
+
+    public void setDateCreated(final LocalDateTime dateCreated) {
+        this.dateCreated = dateCreated;
+    }
+
+    public LocalDateTime getDateUpdated() {
+        return dateUpdated;
+    }
+
+    public void setDateUpdated(final LocalDateTime dateUpdated) {
+        this.dateUpdated = dateUpdated;
     }
 
 }

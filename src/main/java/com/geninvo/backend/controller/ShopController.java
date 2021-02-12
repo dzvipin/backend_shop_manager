@@ -81,7 +81,7 @@ public class ShopController {
     public ResponseEntity<Page<ShopDto>> getAll(
             @RequestParam(required = false) Integer pageNumber,
             @RequestParam(required = false) Integer pageSize,
-            @RequestParam(required = false) String sort) {
+            @RequestParam(required = false, defaultValue = "+dateCreated") String sort) {
 
         PageRequest pageRequest = PageRequestBuilder.getPageRequest(pageSize, pageNumber, sort);
 
@@ -113,7 +113,7 @@ public class ShopController {
             @Valid @RequestBody SearchDto dto,
             @RequestParam(required = false) Integer pageNumber,
             @RequestParam(required = false) Integer pageSize,
-            @RequestParam(required = false) String sort) {
+            @RequestParam(required = false, defaultValue = "+date_created") String sort) {
 
         PageRequest pageRequest = PageRequestBuilder.getPageRequest(pageSize, pageNumber, sort);
 
